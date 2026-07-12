@@ -1,191 +1,94 @@
-# PebbleAI
+<div align="center">
+  <h1>🪨 PebbleAI</h1>
+  <p><strong>A powerful, privacy-first local AI assistant running entirely on your computer.</strong></p>
+  
+  [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
+  [![Ollama](https://img.shields.io/badge/Ollama-Supported-orange.svg)](https://ollama.com/)
+  [![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
+</div>
 
-> A lightweight, local AI assistant powered by open-source models and designed to run privately on your own machine.
+<br>
 
-## Overview
+PebbleAI is an intelligent local assistant that leverages the power of open-source language models (like Gemma, Qwen, and DeepSeek) through Ollama. It operates 100% locally on your machine, ensuring complete privacy, fast performance, and no hidden API costs.
 
-PebbleAI is a personal AI assistant project focused on creating a simple, customizable, and privacy-friendly AI experience.
+## ✨ Features
 
-Unlike cloud-only assistants, PebbleAI is designed to run locally using locally hosted language models through **Ollama**, giving users more control over their data, models, and AI environment.
+- **🔒 100% Local & Private**: No data leaves your machine. Your conversations and files remain entirely on your device.
+- **🧠 Intelligent Routing**: Automatically switches between models based on the task (e.g., using Qwen for coding and Gemma for general queries).
+- **🛠️ Agentic Tools**: Includes a built-in tool registry allowing the AI to:
+  - Perform live web searches and read web pages.
+  - Read and write files on your local filesystem.
+  - Automate desktop actions (launch apps, open URLs).
+  - Process documents (PDFs, Docx) and handle data.
+- **💻 Web Interface**: A sleek Flask-based frontend for seamless interaction.
+- **⚡ Hardware Acceleration**: Automatically detects and utilizes NVIDIA (CUDA) or AMD (ROCm) GPUs for faster inference.
 
-The goal of PebbleAI is to create a compact but powerful AI system that can be expanded with tools, memory, and intelligent automation features.
+## 🚀 Prerequisites
 
----
+Before installing PebbleAI, ensure you have the following installed:
 
-## Features
+1. **Python 3.10+**: Make sure Python is added to your system PATH.
+2. **[Ollama](https://ollama.com/)**: Required to run the local language models. Download it, install it, and ensure the service is running in the background.
 
-### 🤖 Local AI Chat
+## 🛠️ Installation & Setup
 
-* Chat with locally running AI models
-* No dependency on external AI services
-* Privacy-focused conversations
-* Supports multiple open-source models
+We've provided quick setup scripts to automatically install dependencies and download the necessary local models.
 
-### 🧠 Multi-Model Support
+### Windows
 
-PebbleAI can work with different local models depending on hardware capability:
+1. Clone the repository and navigate to the folder:
+   ```cmd
+   git clone https://github.com/your-username/PebbleAI.git
+   cd PebbleAI
+   ```
+2. Run the setup script:
+   ```cmd
+   setup.bat
+   ```
+3. Once the setup completes, start the application:
+   ```cmd
+   python app.py
+   ```
 
-* Gemma
-* Qwen
-* DeepSeek
-* Other Ollama-compatible models
+### Linux / macOS
 
-Users can choose models based on speed, intelligence, and available system resources.
+1. Clone the repository and navigate to the folder:
+   ```bash
+   git clone https://github.com/your-username/PebbleAI.git
+   cd PebbleAI
+   ```
+2. Make the setup script executable and run it:
+   ```bash
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+3. Start the application:
+   ```bash
+   python3 app.py
+   ```
 
----
+## 🎮 Usage
 
-## Architecture
+After running `app.py` or `main.py`, you can interact with PebbleAI in two ways:
 
-PebbleAI uses a modular architecture:
+### Web UI (Recommended)
+Open your web browser and navigate to the local URL provided in the terminal (usually `http://127.0.0.1:5000/`). Enjoy a rich chat interface!
 
-```
-PebbleAI
-│
-├── Flask Backend
-│   ├── API Routes
-│   ├── AI Agent System
-│   ├── Tool Management
-│   └── Model Communication
-│
-├── Frontend Interface
-│   ├── Chat UI
-│   ├── Message System
-│   └── User Interaction
-│
-├── Ollama
-│   └── Local Language Models
-│
-└── Configuration
-    ├── Environment Variables
-    └── User Settings
-```
+### Terminal Mode
+You can also run `python main.py` to chat with PebbleAI directly in your terminal. Use commands like `/clear` to clear conversation memory.
 
----
+## 🤖 Supported Models
 
-## Technology Stack
+PebbleAI is configured to work with the following models out-of-the-box (handled by the setup scripts):
+- `gemma3:4b`
+- `qwen2.5:3b`
+- `deepseek-r1:1.5b`
+- `qwen3:4b`
 
-### Backend
-
-* Python
-* Flask
-* Requests
-* Local AI APIs
-
-### AI Runtime
-
-* Ollama
-* Open-source Large Language Models
-
-### Frontend
-
-* HTML
-* CSS
-* JavaScript
-
----
-
-## Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/PebbleAI.git
-cd PebbleAI
-```
-
-### 2. Install Python dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Install Ollama
-
-Download Ollama from:
-
-https://ollama.com
-
-### 4. Download an AI model
-
-Example:
-
-```bash
-ollama pull gemma3:4b
-```
-
-### 5. Start PebbleAI
-
-```bash
-python app.py
-```
-
-Open:
-
-```
-http://127.0.0.1:5000
-```
+## 🛡️ Security & Privacy
+PebbleAI is built with security in mind. It includes basic protections against prompt extraction and logs blocked security events locally. Since it runs via Ollama, all inference happens completely offline.
 
 ---
-
-## Configuration
-
-PebbleAI uses environment variables for private settings.
-
-Create a `.env` file:
-
-```env
-OLLAMA_URL=http://localhost:11434
-MODEL=gemma3:4b
-```
-
-Do not upload your `.env` file to GitHub.
-
----
-
-## Project Goals
-
-The long-term vision of PebbleAI is to build a complete personal AI ecosystem with:
-
-* Memory system
-* Custom tools
-* Better reasoning capabilities
-* File understanding
-* Automation features
-* Improved user interface
-* Hardware-aware model selection
-
----
-
-## Privacy
-
-PebbleAI is designed around local processing.
-
-Your conversations and data stay on your own machine unless you intentionally connect external services.
-
----
-
-## Development Status
-
-🚧 Active Development
-
-Current focus:
-
-* Improving AI agent capabilities
-* Expanding tool support
-* Enhancing UI experience
-* Improving model management
-
----
-
-## License
-
-This project is currently under development. License information will be added in the future.
-
----
-
-## Author
-
-Created by **Daksh Studio**
-
-Building experimental AI tools and software projects.
-
+<div align="center">
+  <i>Built with ❤️ for local AI enthusiasts.</i>
+</div>
