@@ -10,34 +10,39 @@
 
 <br>
 
-PebbleAI is a powerful local AI assistant that runs entirely on your computer using open-source language models through Ollama. It delivers fast responses, complete privacy, and zero API costs while giving you access to intelligent tools, web search, file management, and desktop automation—all without sending your data to the cloud.
+PebbleAI is a powerful, privacy-first local AI assistant that runs entirely on your computer using open-source language models through Ollama. It delivers fast responses, complete privacy, and zero API costs while giving you access to intelligent tools, web search, file management, and desktop automation.
 
-## ✅ Status
+---
+
+# ✅ Status
 
 **PebbleAI is now available.**
 
-## ✨ Features
+---
+
+# ✨ Features
 
 - 🔒 **100% Local & Private** – Your conversations and files never leave your computer.
-- 🧠 **Intelligent Model Routing** – Automatically chooses the best model for each task.
+- 🧠 **Intelligent Model Routing** – Automatically selects the best AI model for each task.
 - 🛠️ **Built-in AI Tools**
   - Live web search
   - Read and write local files
-  - Launch applications and open websites
-  - Process PDFs, Word documents, and data files
-- 💻 **Modern Web Interface** – Clean, responsive Flask-based UI.
-- ⚡ **Hardware Acceleration** – Automatically uses NVIDIA CUDA or AMD ROCm when available.
+  - Launch applications
+  - Open websites
+  - Process PDFs, DOCX files, and structured data
+- 💻 **Modern Web Interface** – Clean Flask-based interface.
+- ⚡ **Hardware Acceleration** – Supports NVIDIA CUDA and AMD ROCm automatically.
 
 ---
 
 # 🚀 Prerequisites
 
-Before installing PebbleAI, install:
+Install the following before running PebbleAI:
 
-1. **Python 3.10 or newer**
+1. Python **3.10+**
 2. **Ollama**
    - Install Ollama.
-   - Make sure the Ollama service is running before launching PebbleAI.
+   - Ensure the Ollama service is running before launching PebbleAI.
 
 ---
 
@@ -46,8 +51,8 @@ Before installing PebbleAI, install:
 ## Windows
 
 ```cmd
-git clone https://github.com/your-username/PebbleAI.git
-cd PebbleAI
+git clone https://github.com/someoneinsogvt2020-lang/pabble.ai.git
+cd pabble.ai
 
 setup.bat
 
@@ -57,8 +62,8 @@ python app.py
 ## Linux / macOS
 
 ```bash
-git clone https://github.com/your-username/PebbleAI.git
-cd PebbleAI
+git clone https://github.com/someoneinsogvt2020-lang/pabble.ai.git
+cd pabble.ai
 
 chmod +x setup.sh
 ./setup.sh
@@ -70,9 +75,9 @@ python3 app.py
 
 # 📖 How to Use
 
-### Web Interface (Recommended)
+## Web Interface (Recommended)
 
-1. Launch PebbleAI:
+1. Start PebbleAI:
 
 ```cmd
 python app.py
@@ -86,59 +91,66 @@ python app.py
 http://127.0.0.1:5000/
 ```
 
-4. Start chatting with PebbleAI.
+4. Begin chatting with PebbleAI.
 
-5. Ask questions, generate code, summarize documents, search the web, or use any of its built-in AI tools.
+You can:
+
+- Ask questions
+- Generate code
+- Summarize documents
+- Search the web
+- Read and write local files
+- Launch desktop applications
 
 ---
 
-### Terminal Mode
+## Terminal Mode
 
-If you prefer using the terminal:
+Run:
 
 ```cmd
 python main.py
 ```
 
-Type your prompt and press **Enter**.
-
 Useful commands:
 
 - `/clear` — Clear conversation history
-- `/exit` — Quit PebbleAI
+- `/exit` — Close PebbleAI
 
 ---
 
 # 🤖 Supported Models
 
-PebbleAI works with multiple Ollama models, including:
+PebbleAI supports the following Ollama models out of the box:
 
 - gemma3:4b
 - qwen2.5:3b
 - deepseek-r1:1.5b
 - qwen3:4b
 
-Additional Ollama-compatible models can also be configured.
+Additional Ollama-compatible models can be configured.
 
 ---
 
 # 🛡 Security & Privacy
 
-PebbleAI runs entirely on your computer.
+PebbleAI runs completely on your computer.
 
 - No cloud processing
 - No API keys required
 - No subscription fees
-- No conversation data sent to external servers
+- No data leaves your device
 
-All AI inference is performed locally through Ollama, ensuring maximum privacy and control over your data.
+All AI inference is performed locally through Ollama for maximum privacy and control.
 
 ---
 
 <div align="center">
-  <b>🪨 PebbleAI — Private. Fast. Local.</b>
 
-  <br><br>
+## 🪨 PebbleAI
 
-  <i>Built with ❤️ for local AI enthusiasts.</i>
+**Private. Fast. Local.**
+
+Built with ❤️ for local AI enthusiasts.
+
 </div>
