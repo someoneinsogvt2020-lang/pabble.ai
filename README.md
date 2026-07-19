@@ -10,7 +10,11 @@
 
 <br>
 
-PebbleAI is a powerful, privacy-first local AI assistant that runs entirely on your computer using open-source language models through Ollama. It delivers fast responses, complete privacy, and zero API costs while giving you access to intelligent tools, web search, file management, and desktop automation.
+PebbleAI is a powerful, privacy-first local AI assistant that runs entirely on your computer using open-source language models through Ollama.
+
+It provides intelligent conversations, AI-powered tools, local file processing, web search capabilities, and desktop automation while keeping your data completely private.
+
+No cloud dependency. No API costs. Everything runs locally.
 
 ---
 
@@ -22,52 +26,99 @@ PebbleAI is a powerful, privacy-first local AI assistant that runs entirely on y
 
 # ✨ Features
 
-- 🔒 **100% Local & Private** – Your conversations and files never leave your computer.
-- 🧠 **Intelligent Model Routing** – Automatically selects the best AI model for each task.
-- 🛠️ **Built-in AI Tools**
-  - Live web search
-  - Read and write local files
-  - Launch applications
-  - Open websites
-  - Process PDFs, DOCX files, and structured data
-- 💻 **Modern Web Interface** – Clean Flask-based interface.
-- ⚡ **Hardware Acceleration** – Supports NVIDIA CUDA and AMD ROCm automatically.
+- 🔒 **100% Local & Private**
+  - Your conversations and files stay on your device.
+  - No external servers or cloud processing.
+
+- 🧠 **Intelligent Model Routing**
+  - Automatically selects suitable models for different tasks.
+
+- 🛠️ **AI Agent Tools**
+  - Web search and webpage reading.
+  - Local file reading and writing.
+  - Desktop automation.
+  - Application launching.
+  - PDF, DOCX, and data processing.
+
+- 💻 **Modern Web Interface**
+  - Clean Flask-based interface.
+  - Easy browser-based interaction.
+
+- ⚡ **Hardware Acceleration**
+  - Supports NVIDIA CUDA.
+  - Supports AMD ROCm.
 
 ---
 
 # 🚀 Prerequisites
 
-Install the following before running PebbleAI:
+Before installing PebbleAI, install:
 
-1. Python **3.10+**
+1. **Python 3.10+**
+   - Make sure Python is added to your system PATH.
+
 2. **Ollama**
    - Install Ollama.
-   - Ensure the Ollama service is running before launching PebbleAI.
+   - Ensure the Ollama service is running.
 
 ---
 
-# 🛠 Installation
+# 🛠 Installation & Setup
 
 ## Windows
 
+### 1. Clone the repository
+
 ```cmd
 git clone https://github.com/someoneinsogvt2020-lang/pabble.ai.git
+```
+
+### 2. Enter the project directory
+
+```cmd
 cd pabble.ai
+cd PebbleAI
+```
 
+### 3. Run setup
+
+```cmd
 setup.bat
+```
 
+### 4. Start PebbleAI
+
+```cmd
 python app.py
 ```
 
+---
+
 ## Linux / macOS
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/someoneinsogvt2020-lang/pabble.ai.git
-cd pabble.ai
+```
 
+### 2. Enter the project directory
+
+```bash
+cd pabble.ai
+cd PebbleAI
+```
+
+### 3. Run setup
+
+```bash
 chmod +x setup.sh
 ./setup.sh
+```
 
+### 4. Start PebbleAI
+
+```bash
 python3 app.py
 ```
 
@@ -75,11 +126,11 @@ python3 app.py
 
 # 📖 How to Use
 
-## Web Interface (Recommended)
+## 🌐 Web Interface (Recommended)
 
 1. Start PebbleAI:
 
-```cmd
+```bash
 python app.py
 ```
 
@@ -91,63 +142,68 @@ python app.py
 http://127.0.0.1:5000/
 ```
 
-4. Begin chatting with PebbleAI.
+4. Start chatting with PebbleAI.
 
 You can:
 
-- Ask questions
-- Generate code
-- Summarize documents
-- Search the web
-- Read and write local files
-- Launch desktop applications
+- Ask questions.
+- Generate and debug code.
+- Summarize documents.
+- Search the web.
+- Process local files.
+- Use AI tools.
 
 ---
 
-## Terminal Mode
+## 💻 Terminal Mode
 
 Run:
 
-```cmd
+```bash
 python main.py
 ```
 
-Useful commands:
+Interact with PebbleAI directly from your terminal.
 
-- `/clear` — Clear conversation history
-- `/exit` — Close PebbleAI
+Commands:
+
+```
+/clear  - Clear conversation memory
+/exit   - Exit PebbleAI
+```
 
 ---
 
 # 🤖 Supported Models
 
-PebbleAI supports the following Ollama models out of the box:
+PebbleAI supports these Ollama models:
 
-- gemma3:4b
-- qwen2.5:3b
-- deepseek-r1:1.5b
-- qwen3:4b
+- `gemma3:4b`
+- `qwen2.5:3b`
+- `deepseek-r1:1.5b`
+- `qwen3:4b`
 
-Additional Ollama-compatible models can be configured.
+You can add more Ollama-compatible models anytime.
 
 ---
 
 # 🛡 Security & Privacy
 
-PebbleAI runs completely on your computer.
+PebbleAI is designed with privacy as a priority.
 
-- No cloud processing
-- No API keys required
-- No subscription fees
-- No data leaves your device
+✅ Runs locally  
+✅ No API keys required  
+✅ No subscription fees  
+✅ No conversation data uploaded  
+✅ Full control over your AI assistant  
 
-All AI inference is performed locally through Ollama for maximum privacy and control.
+All AI processing happens locally through Ollama.
 
 ---
 
 <div align="center">
 
-## 🪨 PebbleAI
+# 🪨 PebbleAI
 
 **Private. Fast. Local.**
 
