@@ -1,82 +1,88 @@
-<div align="center">
-  <h1>🪨 PebbleAI</h1>
-  <p><strong>A powerful, privacy-first local AI assistant running entirely on your computer.</strong></p>
+# PebbleAI
 
-  [![Status](https://img.shields.io/badge/Status-Now%20Available-brightgreen.svg)](#)
-  [![Version](https://img.shields.io/badge/Version-v0.1.0-blue.svg)](#)
-  [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
-  [![Ollama](https://img.shields.io/badge/Ollama-Supported-orange.svg)](https://ollama.com/)
-  [![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
-</div>
+**A locally-run AI assistant with agentic tool use — no cloud, no API keys, no data leaving your machine.**
 
-<br>
-
-PebbleAI is a powerful privacy-first local AI assistant that runs entirely on your computer using open-source language models through Ollama.
-
-It provides intelligent conversations, AI tools, local file processing, web search capabilities, and desktop automation while keeping your data private.
-
-**No cloud dependency. No API costs. Everything runs locally.**
+PebbleAI runs entirely on your own computer using [Ollama](https://ollama.com/) to serve local language models. It combines a Flask web interface with an agent loop that can search the web, read pages, work with files, and launch apps on your behalf — all without sending your data to a third party.
 
 ---
 
-# ✅ Status
+## Table of Contents
 
-**PebbleAI v0.1.0 — First Public Test Build**
-
-PebbleAI is now available for testing.
-
----
-
-# ✨ Features
-
-- 🔒 **100% Local & Private**
-  - Your conversations and files stay on your computer.
-  - No external servers required.
-
-- 🧠 **Intelligent Model Support**
-  - Works with open-source models through Ollama.
-  - Supports multiple AI models for different tasks.
-
-- 🛠️ **AI Agent Tools**
-  - Web search.
-  - Read and write local files.
-  - Desktop automation.
-  - Launch applications.
-  - Process documents.
-
-- 💻 **Web Interface**
-  - Clean browser-based chat interface.
-  - Powered by Flask.
-
-- ⚡ **Hardware Acceleration**
-  - Supports NVIDIA CUDA.
-  - Supports AMD ROCm.
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Quick Install (Windows)](#quick-install-windows)
+- [Step-by-Step Installation](#step-by-step-installation)
+- [Running PebbleAI](#running-pebbleai)
+- [Project Structure](#project-structure)
+- [Troubleshooting](#troubleshooting)
+- [System Requirements](#system-requirements)
+- [License](#license)
 
 ---
 
-# 🚀 Prerequisites
+## Features
 
-Before installing PebbleAI, install:
+- **Fully local inference** — powered by Ollama; nothing is sent to an external API.
+- **Multi-model support** — ships configured for `qwen2.5:3b`, `gemma3:4b`, `deepseek-r1:1.5b`, and `qwen3:4b`.
+- **Agentic tool use**, including:
+  - Web search
+  - Page content fetching
+  - Image search
+  - URL reading
+  - File read/write
+  - Local application launching
+- **Conversation memory** across sessions, with manual clear/inspect commands.
+- **Web-based chat interface** served locally via Flask (`http://127.0.0.1:5000/`).
 
-### 1. Python 3.10+
+---
 
-Make sure Python is installed and added to your system PATH.
+## Prerequisites
 
-Check:
+Install these three things before proceeding:
+
+| Requirement | Where to get it | Notes |
+|---|---|---|
+| **Python 3.10+** | [python.org/downloads](https://www.python.org/downloads/) | Check **"Add Python to PATH"** during install |
+| **Ollama** | [ollama.com](https://ollama.com/) | Must be running in the background (check your system tray) |
+| **Git** | [git-scm.com/downloads](https://git-scm.com/downloads) | Needed to clone the repository |
+
+---
+
+## Quick Install (Windows)
+
+Open **Command Prompt** and paste this entire block:
 
 ```cmd
-python --version
+git clone https://github.com/someoneinsogvt2020-lang/pabble.ai.git
+cd pabble.ai\PebbleAI
+setup.bat
+python app.py
 ```
 
-### 2. Ollama
+Then open your browser to:
 
-Install Ollama and ensure the Ollama service is running.
+```
+http://127.0.0.1:5000/
+```
+
+`setup.bat` handles two things for you automatically: installing everything in `requirements.txt`, and pulling the four required Ollama models. If you'd rather see every step spelled out instead of running the script, use this fully manual version — it does exactly the same thing, just explicitly:
+
+```cmd
+git clone https://github.com/someoneinsogvt2020-lang/pabble.ai.git
+cd pabble.ai\PebbleAI
+pip install -r requirements.txt
+ollama pull qwen2.5:3b
+ollama pull gemma3:4b
+ollama pull deepseek-r1:1.5b
+ollama pull qwen3:4b
+python app.py
+```
+
+That's it either way. The sections below explain what each step does, in case anything goes wrong.
 
 ---
 
-# 🛠 Installation & Setup
-
-## Windows
+## Step-by-Step Installation
 
 ### 1. Clone the repository
 
@@ -84,11 +90,10 @@ Install Ollama and ensure the Ollama service is running.
 git clone https://github.com/someoneinsogvt2020-lang/pabble.ai.git
 ```
 
-### 2. Enter the project folder
+### 2. Move into the project folder
 
 ```cmd
-cd pabble.ai
-cd PebbleAI
+cd pabble.ai\PebbleAI
 ```
 
 ### 3. Run setup
@@ -97,153 +102,64 @@ cd PebbleAI
 setup.bat
 ```
 
-### 4. Start PebbleAI
+This installs all Python dependencies from `requirements.txt` and pulls the four Ollama models PebbleAI needs. **This downloads several GB of model data** — the time this takes depends entirely on your internet connection, so let it run to completion without closing the window.
 
-Run:
-
-```cmd
-python app.py
-```
-
-> ⚠️ **Important:** Always run PebbleAI using `python app.py` from the terminal.  
-> Do not double-click `app.py` or open it directly in VS Code/File Explorer.  
-> Windows may associate `.py` files with a text editor, causing the file to open instead of running.
-
----
-
-## Linux / macOS
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/someoneinsogvt2020-lang/pabble.ai.git
-```
-
-### 2. Enter the project folder
-
-```bash
-cd pabble.ai
-cd PebbleAI
-```
-
-### 3. Run setup
-
-```bash
-chmod +x setup.sh
-./setup.sh
-```
-
-### 4. Start PebbleAI
-
-```bash
-python3 app.py
-```
-
-> ⚠️ Run PebbleAI through Python from the terminal. Opening the file directly will not start the application.
-
----
-
-# 📖 How to Use
-
-## 🌐 Web Interface (Recommended)
-
-1. Start PebbleAI:
+### 4. Launch the app
 
 ```cmd
 python app.py
 ```
 
-2. Open your browser.
+### 5. Open it in your browser
 
-3. Visit:
-
-```
-http://127.0.0.1:5000/
-```
-
-4. Start chatting with PebbleAI.
-
-You can:
-
-- Ask questions.
-- Generate code.
-- Summarize documents.
-- Search the web.
-- Process local files.
-- Use AI-powered tools.
+Navigate to `http://127.0.0.1:5000/` — the terminal will also print this URL once the server starts.
 
 ---
 
-## 💻 Terminal Mode
-
-Run:
-
-```cmd
-python main.py
-```
-
-Commands:
+## Project Structure
 
 ```
-/clear  - Clear conversation memory
-/exit   - Exit PebbleAI
+PebbleAI/
+├── app.py                  # Flask web server / main entry point
+├── main.py                 # CLI entry point (terminal-based interaction)
+├── agent.py                 # Core agent loop
+├── agent_config.py          # Model, history, and iteration settings
+├── ai.py                    # Model inference wrapper
+├── memory.py / memory.txt   # Persistent conversation memory
+├── history_manager.py       # Conversation history handling
+├── tool_registry.py         # Web search, file I/O, app launch, etc.
+├── completion_detector.py   # Detects when an agent task is finished
+├── templates/                # Frontend HTML
+├── tools/                    # Individual tool implementations
+├── requirements.txt
+├── setup.bat                 # Windows setup script
+└── setup.sh                  # Linux/macOS setup script
 ```
 
 ---
 
-# 🤖 Supported Models
+## Troubleshooting
 
-PebbleAI supports:
-
-- `gemma3:4b`
-- `qwen2.5:3b`
-- `deepseek-r1:1.5b`
-- `qwen3:4b`
-
-Additional Ollama-compatible models can be added.
-
----
-
-# 🛡 Security & Privacy
-
-PebbleAI is designed around privacy.
-
-✅ Runs locally  
-✅ No API keys required  
-✅ No subscription fees  
-✅ No cloud processing  
-✅ Your data stays on your device  
-
-All AI inference happens locally through Ollama.
+| Problem | Fix |
+|---|---|
+| `'python' is not recognized` | Python wasn't added to PATH — reinstall Python and check that box, or try `py app.py` instead |
+| `ollama pull` fails or hangs | Confirm the Ollama app is actually running (check system tray) before running `setup.bat` |
+| `pip install` errors during setup | Run `python -m pip install --upgrade pip`, then re-run `setup.bat` |
+| Port 5000 already in use | Close whatever else is using that port, or change the port in `app.py` |
+| Setup seems frozen on model downloads | It's likely still downloading — model pulls are several GB each and show minimal progress output |
 
 ---
 
-# 📦 Release Information
+## System Requirements
 
-## PebbleAI v0.1.0 — First Public Test Build
-
-### Tested
-
-- Windows setup
-- Ollama integration
-- Local model loading
-- Flask web interface
-- Basic AI conversations
-
-### Known Rough Edges
-
-- Some features may still need refinement.
-- Hardware performance depends on your system.
-- First-time setup requires Python and Ollama installation.
+- Python 3.10+
+- ~8GB free disk space (for local models)
+- 8GB+ RAM recommended
+- No dedicated GPU required
 
 ---
 
-<div align="center">
+## License
 
-# 🪨 PebbleAI
+*(Add your license here — e.g. MIT, Apache 2.0, or "All rights reserved" if proprietary under GlobalAI Private Limited.)*
 
-**Private. Fast. Local.**
-
-Built with ❤️ for local AI enthusiasts.
-
-</div>
